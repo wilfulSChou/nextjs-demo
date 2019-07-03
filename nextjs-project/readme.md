@@ -40,3 +40,47 @@ Router.push()
 ### LazyLoading
 - 异步加载模块 import('..)
 - 异步加载组件 import dynamic from 'next/dynamic'  dynamic(import('..))
+### ssr流程
+` 服务端渲染: 浏览器发起页面请求 --->  koa接收到请求，并调用nextjs ---> nextjs开始渲染 --> 调用app的getInitailProps --> 调用页面的getInitailProps --> 渲染出最终的html --> 服务端返回页面，渲染 `
+` 客户端路由跳转： 点击链接按钮 --> 异步加载页面的组件js --> 调用页面的getInitialProps --> 数据返回，路由变化 --> 渲染新的页面 `
+### 什么是Hooks
+- 让函数组件具有类组件的能力
+- useState useEffect
+### State Hooks
+**API**
+- useState
+- useReducer
+ ### reducer
+ - 纯粹的函数，没有副作用
+ - 有任何数据更新时，应该返回一个新对象
+ - 通过combineReducers进行合并
+ ### Nextjs中的HOC模式
+ - 接受组件作为参数并返回新的组件
+ ### 认证和授权
+ ***什么是认证***
+ - 用户名密码代表一个用户
+ - 身份证代表一个人
+ - 手机号码也可以确认一个人
+ ***互联网中认证***
+ - 用户名密码登录
+ - 邮箱发送登录链接
+ - 手机号码接受验证码
+ ***OAuth是一种行业标准的授权方式***
+ - Authorization Code
+ - Refresh Token
+ - Device Code
+ - Password
+ - Implicit（废弃）
+ - Client Credentials（不常用）
+ ***OAuth可靠性策略***
+ - 一次性code
+ - id + secret
+ - redirect_uri
+
+ ![avatar](oauth.png)
+
+ - vscode-styled-jsx插件 可以高亮styled-jsx代码
+ - cloneElement 扩展自定义组件
+
+
+

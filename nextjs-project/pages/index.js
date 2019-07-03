@@ -1,8 +1,1 @@
-export default () => {
-    return (
-        <>
-            <span>Index</span>
-            <a>Index a</a>
-        </>
-    )
-}
+export default () => <span>Index</span>
