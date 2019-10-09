@@ -5,11 +5,18 @@ const __NEXT_REDUX_STORE__ = '__NEXT_REDUX_STORE__'
 
 function getOrCreateStore(initialState) {
     if (isServer) {
+        // console.log('getOrCreateStore isServer');
+        
         return createStore(initialState)
     }
     if(!window[__NEXT_REDUX_STORE__]) {
+        // console.log('!window[__NEXT_REDUX_STORE__]', initialState);
+        
         window[__NEXT_REDUX_STORE__] = createStore(initialState)
     }
+
+    // console.log('window[__NEXT_REDUX_STORE__]', window[__NEXT_REDUX_STORE__]);
+    
 
     return window[__NEXT_REDUX_STORE__]
 }
@@ -36,6 +43,8 @@ export default (Comp) => {
         
         const { req } = ctx.ctx
         const session = req && req.session
+        // console.log('WithReduxApp.getInitialProps session');
+        
         let reduxStore
         if (isServer) {
             if (session && session.userInfo) {
@@ -52,6 +61,8 @@ export default (Comp) => {
         
         let appProps = {}
         if (typeof Comp.getInitialProps === 'function') {
+            // console.log("Comp.getInitialProps === 'function'");
+            
             appProps = await Comp.getInitialProps(ctx)
         }
 

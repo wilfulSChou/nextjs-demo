@@ -40,6 +40,8 @@ export function logout() {
 }
 
 export default function initializeStore(state) {
+    console.log('initializeStore state');
+    
     const store = createStore(
         allReducers,
         Object.assign({}, {

@@ -65,6 +65,7 @@ Router.push()
  - 用户名密码登录
  - 邮箱发送登录链接
  - 手机号码接受验证码
+
  ***OAuth是一种行业标准的授权方式***
  - Authorization Code
  - Refresh Token
@@ -72,12 +73,11 @@ Router.push()
  - Password
  - Implicit（废弃）
  - Client Credentials（不常用）
+
  ***OAuth可靠性策略***
  - 一次性code
  - id + secret
  - redirect_uri
-
- ![avatar](oauth.png)
 
  - vscode-styled-jsx插件 可以高亮styled-jsx代码
  - cloneElement 扩展自定义组件

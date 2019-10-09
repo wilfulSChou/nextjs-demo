@@ -27,11 +27,15 @@ function Index({ userRepos, userStaredRepos, user, router }) {
 
     useEffect(() => {
         if (!isServer) {
-            // cachedUserRepos = userRepos
-            // cachedUserStaredRepos = userStaredRepos
-            userRepos && cache.set('userRepos', userRepos)
-            userStaredRepos && cache.set('userStaredRepos', userStaredRepos)
+            cachedUserRepos = userRepos
+            cachedUserStaredRepos = userStaredRepos
+            // userRepos && cache.set('userRepos', userRepos)
+            // userStaredRepos && cache.set('userStaredRepos', userStaredRepos)
         }
+        const timeout = setTimeout(() => {
+            cachedUserRepos = null
+            cachedUserStaredRepos = null
+        }, 1000 * 10)
     }, [userRepos, userStaredRepos])
 
     if (!user || !user.id) {
@@ -122,10 +126,16 @@ Index.getInitialProps = async ({ ctx, reduxStore }) => {
         }
     }
     if (!isServer) {
-        if (cache.get('userRepos') && cache.get('userStaredRepos')) {
+        // if (cache.get('userRepos') && cache.get('userStaredRepos')) {
+        //     return {
+        //         userRepos: cache.get('userRepos'),
+        //         userStaredRepos: cache.get('userStaredRepos')
+        //     }
+        // }
+        if (cachedUserRepos && cachedUserStaredRepos) {
             return {
-                userRepos: cache.get('userRepos'),
-                userStaredRepos: cache.get('userStaredRepos')
+                userRepos: cachedUserRepos,
+                userStaredRepos: cachedUserStaredRepos
             }
         }
     }

@@ -24,16 +24,18 @@ const footerStyle = {
 }
 // const Comp = ({ color, children, style }) => <div style={{ color: color, ...style }}>{children}</div>
 function MyLayout({children, user, logout, router}) {
-    console.log(router);
-    
-    const [search, setSearch] = useState('')
+    // console.log(router);
+    const urlQuery = router.query && router.query.query
+    const [search, setSearch] = useState(urlQuery || '')
     const handleSearchChange = useCallback((event) => {
         setSearch(event.target.value)
     }, [])
     const handleLogout = useCallback(() => {
         logout()
     }, [logout])
-    const handleOnSearch = useCallback(() => {})
+    const handleOnSearch = useCallback(() => {
+        Router.push(`/search?query=${search}`)
+    }, [search])
     const handleGotoOAuth = useCallback((e) => {
         e.preventDefault()
         axios.get(`/prepare-auth?url=${router.asPath}`)
@@ -63,7 +65,9 @@ function MyLayout({children, user, logout, router}) {
                     <div className="header-inner">
                         <div className="header-left">
                             <div className="logo">
-                                <Icon type="github" style={githubIconStyle} />
+                                <Link href="/">
+                                    <Icon type="github" style={githubIconStyle} />
+                                </Link>
                             </div>
                             <div>
                                 <Input.Search
@@ -102,7 +106,7 @@ function MyLayout({children, user, logout, router}) {
                 </Container>
             </Content>
             <Footer style={footerStyle}>
-                Develop by wilfulschou @<a href="/">wilful</a>
+                Develop by wilfulschou @<a href="mailto:wilfulschou@163.com">wilfulschou@163.com</a>
             </Footer>
             <style jsx>{`
                 .header-inner{
@@ -122,11 +126,14 @@ function MyLayout({children, user, logout, router}) {
                     height: 100%;
                 }
                 .ant-layout{
-                    height: 100%;
+                    min-height: 100%;
                 }
                 .ant-layout-header{
                     padding-left: 0;
                     padding-right: 0;
+                }
+                .ant-layout-content{
+                    background: #fff;
                 }
             `}</style>
         </Layout>

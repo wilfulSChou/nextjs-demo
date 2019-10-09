@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import 'antd/dist/antd.css'
 import withRedux from '../lib/with-redux'
 import PageLoading from '../components/PageLoading'
+import axios from 'axios'
 
 class MyApp extends App {
     state = {
@@ -40,6 +41,7 @@ class MyApp extends App {
         Router.events.on('routeChangeStart', this.startLoading)
         Router.events.on('routeChangeComplete', this.stopLoading)
         Router.events.on('routeChangeError', this.startLoading)
+
     }
 
     componentWillMount() {
