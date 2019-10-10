@@ -83,10 +83,14 @@ Router.push()
  - cloneElement 扩展自定义组件
 
 *** Markdown转html ***
-1、安装atob, atob本是浏览器的全局方法，atob插件可以时nodejs环境也可使用该方法, atob方法可使base字符转成string,注意，atob转中文字符会产生乱码，解决办法在第4步
-2、安装markdown-it, 将string渲染成md格式的html
-3、安装github-markdown-css,美化markdown样式
-4、decodeURIComponent(escape(atob(str)))
+1. 安装atob, atob本是浏览器的全局方法，atob插件可以时nodejs环境也可使用该方法, atob方法可使base字符转成string,注意，atob转中文字符会产生乱码，解决办法在第4步
+2. 安装markdown-it, 将string渲染成md格式的html
+3. 安装github-markdown-css,美化markdown样式
+4. decodeURIComponent(escape(atob(str)))
+
+*** 利用打包文件优化 ***
+1. 安装@zeit/bundle-browser-analyzer并进行next.config.js和package.json配置
+2. 分析打包文件，可使用dynamic动态加载依赖包，并进行缓存；或者使用webpack.IgnorePlugin()
 
 
 

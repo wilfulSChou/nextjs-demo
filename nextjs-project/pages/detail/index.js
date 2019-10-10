@@ -1,8 +1,9 @@
 import withRepoBasic from '../../components/with-repo-basic'
+import dynamic from 'next/dynamic'
 import api from '../../lib/api'
-import MDRender from '../../components/MarkdownRender'
-
-
+const MDRender = dynamic(() => import('../../components/MarkdownRender'), {
+    loading: () => <p>loading</p>
+})
 
 function Detail ({ readme }) {
     console.log('readme==', readme);
