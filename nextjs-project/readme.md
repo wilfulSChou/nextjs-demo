@@ -82,5 +82,11 @@ Router.push()
  - vscode-styled-jsx插件 可以高亮styled-jsx代码
  - cloneElement 扩展自定义组件
 
+*** Markdown转html ***
+1、安装atob, atob本是浏览器的全局方法，atob插件可以时nodejs环境也可使用该方法, atob方法可使base字符转成string,注意，atob转中文字符会产生乱码，解决办法在第4步
+2、安装markdown-it, 将string渲染成md格式的html
+3、安装github-markdown-css,美化markdown样式
+4、decodeURIComponent(escape(atob(str)))
+
 
 

@@ -8,11 +8,15 @@ const koaBody = require('koa-body')
 const RedisSessionStore = require('./server/session-store')
 const auth = require('./server/auth')
 const api = require('./server/api')
+const atob = require('atob')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 
 const handle = app.getRequestHandler()
+
+// 设置nodejs全局的一个方法
+global.atob = atob
 
 // 创建redis client
 const redis = new Redis()
