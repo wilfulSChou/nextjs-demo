@@ -7,6 +7,7 @@ import Router, { withRouter } from 'next/router'
 import LRU from 'lru-cache'
 
 import Repo from '../components/Repo'
+import { cacheArray } from '../lib/repo-basic-cache'
 
 const { publicRuntimeConfig } = getConfig()
 let cachedUserRepos, cachedUserStaredRepos
@@ -20,6 +21,13 @@ function Index({ userRepos, userStaredRepos, user, router }) {
     console.log(userRepos, userStaredRepos, user, router);
 
     const tabKey = router.query.key || '1'
+
+    useEffect(() => {
+        if (!isServer) {
+            cacheArray(userRepos)
+            cacheArray(userStaredRepos)
+        }
+    })
 
     const handleTabChange = (activeKey) => {
         Router.push(`/?key=${activeKey}`)
