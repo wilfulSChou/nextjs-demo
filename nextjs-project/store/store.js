@@ -29,18 +29,18 @@ export function logout() {
                     type: LOGOUT
                 })
             } else {
-                console.log('logout failed', resp);
+                // console.log('logout failed', resp);
                 
             }
         }).catch((err) => {
-            console.log('logout failed', err);
+            // console.log('logout failed', err);
             
         })
     }
 }
 
 export default function initializeStore(state) {
-    console.log('initializeStore state');
+    // console.log('initializeStore state');
     
     const store = createStore(
         allReducers,

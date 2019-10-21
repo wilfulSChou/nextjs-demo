@@ -56,7 +56,7 @@ function MyCountFunc() {
 }
 
 const Child = memo(function Child({ onButtonClick, config }) {
-    console.log('child render');
+    // console.log('child render');
     return (
         <button onClick={onButtonClick} style={{ color: config.color }}>
             {config.text}

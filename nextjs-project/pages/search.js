@@ -69,10 +69,10 @@ const FilterLink = memo(({ name, query, lang, sort, order, page }) => {
  * page: 分页页面
  */
 function Search({ router, repos }) {
-    console.log(repos);
+    // console.log(repos);
 
     const { ...querys } = router.query
-    console.log(querys);
+    // console.log(querys);
 
     useEffect(() => {
         !isServer && cacheArray(repos.items)

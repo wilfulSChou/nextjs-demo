@@ -16,7 +16,7 @@ function makeQuery(queryObject) {
 }
 export default (Comp, type = 'index') => {
     function WithDetail({ repoBasic, router, ...rest }) {
-        console.log(repoBasic);
+        // console.log(repoBasic);
         
         const query = makeQuery(router.query)
         useEffect(() => {

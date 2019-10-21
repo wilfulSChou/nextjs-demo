@@ -6,7 +6,7 @@ const MDRender = dynamic(() => import('../../components/MarkdownRender'), {
 })
 
 function Detail ({ readme }) {
-    console.log('readme==', readme);
+    // console.log('readme==', readme);
     
     return <MDRender content={readme.content} isBase64={true} />
 }

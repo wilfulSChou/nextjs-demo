@@ -43,11 +43,11 @@ function MyLayout({children, user, logout, router}) {
             if (resp.status === 200) {
                 location.href = publicRuntimeConfig.OAUTH_URL
             } else {
-                console.log('prepare auth failed', resp);
+                // console.log('prepare auth failed', resp);
                 
             }
         }).catch(err => {
-            console.log('pare auth failed', err);
+            // console.log('pare auth failed', err);
             
         })
     }, [])

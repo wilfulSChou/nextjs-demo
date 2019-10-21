@@ -18,7 +18,7 @@ const cache = new LRU({
 
 function Index({ userRepos, userStaredRepos, user, router }) {
 
-    console.log(userRepos, userStaredRepos, user, router);
+    // console.log(userRepos, userStaredRepos, user, router);
 
     const tabKey = router.query.key || '1'
 

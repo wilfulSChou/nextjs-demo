@@ -4,7 +4,7 @@ const { client_id, client_secret, request_token_url } = config.github
 module.exports = (server) => {
     server.use(async (ctx, next) => {
         if (ctx.path === '/auth') {
-            console.log('server/auth path=/auth');
+            // console.log('server/auth path=/auth');
 
             const code = ctx.query.code
             if (!code) {
@@ -53,7 +53,7 @@ module.exports = (server) => {
         const path = ctx.path        
         const method = ctx.method
         if (path === '/logout' && method === 'POST') {
-            console.log('server/auth path=/logout ');
+            // console.log('server/auth path=/logout ');
 
             ctx.session = null
             ctx.body = 'logout success'
@@ -67,7 +67,7 @@ module.exports = (server) => {
         const path = ctx.path
         const method = ctx.method
         if (path === '/prepare-auth' && method === 'GET') {
-            console.log('server/auth path=/prepare-auth ');
+            // console.log('server/auth path=/prepare-auth ');
             // ctx.session = null
             // ctx.body = 'logout success'
             const { url } = ctx.query

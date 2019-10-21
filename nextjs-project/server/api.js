@@ -4,8 +4,8 @@ module.exports = (server) => {
         const path = ctx.path
         
         if (path.startsWith('/github/')) {
-            console.log('server/api path=', path);
-            console.log('ctx.req.body', ctx.request.body);
+            // console.log('server/api path=', path);
+            // console.log('ctx.req.body', ctx.request.body);
             
             const method = ctx.method
             const session = ctx.session
