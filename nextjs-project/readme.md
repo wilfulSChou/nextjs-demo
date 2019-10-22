@@ -92,5 +92,11 @@ Router.push()
 1. 安装@zeit/bundle-browser-analyzer并进行next.config.js和package.json配置
 2. 分析打包文件，可使用dynamic动态加载依赖包，并进行缓存；或者使用webpack.IgnorePlugin()
 
-
+*** 项目部署 ***
+1. 项目变成git项目，通过git init初始化项目，增加一个.gitignore文件，添加不需要提交代码的文件，运行git add .和 git commit -m 'init'
+2. 通过gitee创建线上仓库，获取ssh地址，在设置里面添加本地电脑公钥和线上服务器地址的公钥
+3. 打开项目所在地址的命令行输入ssh-keygen.exe一直点击&生成公钥，通过cat ~/.ssh找到ssh目录，进入id_rsa.pub文件,文件内容即为公钥
+4. git remote add origin 码云ssh地址 关联远程仓库
+5. git push origin master 将本地master分支代码推到远程服务器上去
+6. 打开项目所在地址的命令行输入`ssh 服务器ip地址和密码`，连接服务器
 
